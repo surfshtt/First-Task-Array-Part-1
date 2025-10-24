@@ -1,12 +1,17 @@
 package ch1.services.impl;
 
+import ch1.array.ArrayInterface;
 import ch1.services.ServiceInterface;
+import ch1.utils.ServiceValidator;
 
 import java.util.List;
 
 public class ServiceString implements ServiceInterface<String> {
     @Override
-    public String findMin(List<String> elements) {
+    public String findMin(ArrayInterface<String> array) {
+        ServiceValidator.isValidArray(array);
+
+        List<String> elements = array.getElements();
         String minString = elements.getFirst();
         for (String element : elements) {
             if(element.length() < minString.length()) {
@@ -18,7 +23,10 @@ public class ServiceString implements ServiceInterface<String> {
     }
 
     @Override
-    public String findMax(List<String> elements) {
+    public String findMax(ArrayInterface<String> array) {
+        ServiceValidator.isValidArray(array);
+
+        List<String> elements = array.getElements();
         String maxString = elements.getFirst();
         for (String element : elements) {
             if(element.length() > maxString.length()) {
@@ -29,31 +37,40 @@ public class ServiceString implements ServiceInterface<String> {
         return maxString;
     }
 
-    //Тут поиск не по индексу переданному, в качестве параметра саму строку кидаю
+    //Меняю местами элементы по индексам
     @Override
-    public void replaceElements(List<String> elements, String firstElement, String secondElement) {
-        int firstIndex = elements.indexOf(firstElement);
-        int secondIndex = elements.indexOf(secondElement);
-        elements.set(firstIndex, secondElement);
-        elements.set(secondIndex, firstElement);
+    public void replaceElements(ArrayInterface<String> array, int firstIndex, int secondIndex) {
+        ServiceValidator.isValidIndex(array, firstIndex);
+        ServiceValidator.isValidIndex(array, secondIndex);
+
+        List<String> elements = array.getElements();
+        String firstValue = elements.get(firstIndex);
+        String secondValue = elements.get(secondIndex);
+        elements.set(firstIndex, secondValue);
+        elements.set(secondIndex, firstValue);
     }
 
     @Override
-    public void replaceElement(List<String> elements, int index, String newElement) {
-        elements.set(index, newElement);
+    public void replaceElement(ArrayInterface<String> array, int index, String newElement) {
+        ServiceValidator.isValidIndex(array, index);
+
+        array.getElements().set(index, newElement);
     }
 
     @Override
-    public int averageValue(List<String> elements) {
-        int totalLength = sumOfElements(elements);
+    public int averageValue(ArrayInterface<String> array) {
+        ServiceValidator.isValidArray(array);
 
-        return totalLength / elements.size();
+        int totalLength = sumOfElements(array);
+        return totalLength / array.getElements().size();
     }
 
     @Override
-    public int sumOfElements(List<String> elements) {
+    public int sumOfElements(ArrayInterface<String> array) {
+        ServiceValidator.isValidArray(array);
+
         int totalLength = 0;
-        for (String element : elements) {
+        for (String element : array.getElements()) {
             totalLength += element.length();
         }
 
