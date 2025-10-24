@@ -24,48 +24,11 @@ public class FileDataReader {
             if (!Files.isReadable(path)) {
                 throw new FileReadException("Файл недоступен для чтения: " + filePath);
             }
-            
-            // Используем Java 8 Stream API для чтения файла
-            try (Stream<String> lines = Files.lines(path)) {
-                return lines.collect(Collectors.toList());
-            }
+
+            return Files.readAllLines(path);
             
         } catch (IOException e) {
-            throw new FileReadException("Ошибка при чтении файла: " + filePath, e);
-        }
-    }
-    
-    public String readFirstLine(String filePath) throws FileReadException {
-        List<String> lines = readAllLines(filePath);
-        
-        if (lines.isEmpty()) {
-            throw new FileReadException("Файл пустой: " + filePath);
-        }
-        
-        return lines.get(0);
-    }
-    
-    public List<String> readNonEmptyLines(String filePath) throws FileReadException {
-        try {
-            Path path = Paths.get(filePath);
-            
-            if (!Files.exists(path)) {
-                throw new FileReadException("Файл не найден: " + filePath);
-            }
-            
-            if (!Files.isReadable(path)) {
-                throw new FileReadException("Файл недоступен для чтения: " + filePath);
-            }
-            
-            // Используем Java 8 Stream API для чтения и фильтрации файла
-            try (Stream<String> lines = Files.lines(path)) {
-                return lines
-                    .filter(line -> line != null && !line.trim().isEmpty())
-                    .collect(Collectors.toList());
-            }
-            
-        } catch (IOException e) {
-            throw new FileReadException("Ошибка при чтении файла: " + filePath, e);
+            throw new FileReadException("Ошибка при чтении файла: " + filePath);
         }
     }
 }

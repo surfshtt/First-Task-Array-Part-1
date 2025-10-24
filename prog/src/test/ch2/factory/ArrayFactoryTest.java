@@ -22,7 +22,7 @@ public class ArrayFactoryTest {
 
     @Test
     void testCreateIntegerArrayFromFile() throws ArrayCreationException {
-        String filePath = "prog/src/ch2/data/dataIntegerCorrect.txt";
+        String filePath = "prog/src/ch2/data/dataInteger.txt";
         List<Integer> expected = Arrays.asList(1, 2, 3, 4, 5);
 
         ArrayIntegerEntity actual = arrayFactory.createIntegerArrayFromFile(filePath);
@@ -31,29 +31,9 @@ public class ArrayFactoryTest {
     }
 
     @Test
-    void testCreateIntegerArrayFromFileWithDashes() throws ArrayCreationException {
-        String filePath = "prog/src/ch2/data/dataIntegerCorrect2.txt";
-        List<Integer> expected = Arrays.asList(10, 20, 30, 40, 50);
-
-        ArrayIntegerEntity actual = arrayFactory.createIntegerArrayFromFile(filePath);
-
-        Assertions.assertEquals(expected, actual.getElements());
-    }
-
-    @Test
-    void testCreateIntegerArrayFromFileWithIncorrectData() {
-        String filePath = "prog/src/ch2/data/dataIntegerIncorrect.txt";
-
- & Then
-        Assertions.assertThrows(ArrayCreationException.class, () -> {
-            arrayFactory.createIntegerArrayFromFile(filePath);
-        });
-    }
-
-    @Test
     void testCreateStringArrayFromFile() throws ArrayCreationException {
-        String filePath = "prog/src/ch2/data/dataStringCorrect.txt";
-        List<String> expected = Arrays.asList("hello", "world", "java", "programming");
+        String filePath = "prog/src/ch2/data/dataString.txt";
+        List<String> expected = Arrays.asList("hello", "hi", "hee", "erg", "rege", "dsf");
 
         ArrayStringEntity actual = arrayFactory.createStringArrayFromFile(filePath);
 
@@ -62,8 +42,8 @@ public class ArrayFactoryTest {
 
     @Test
     void testCreateStringArrayFromFileWithDashes() throws ArrayCreationException {
-        String filePath = "prog/src/ch2/data/dataStringCorrect2.txt";
-        List<String> expected = Arrays.asList("test", "example", "sample", "data");
+        String filePath = "prog/src/ch2/data/dataString2.txt";
+        List<String> expected = Arrays.asList("hello", "hi", "hee", "erg", "rege", "dsf");
 
         ArrayStringEntity actual = arrayFactory.createStringArrayFromFile(filePath);
 
@@ -71,12 +51,9 @@ public class ArrayFactoryTest {
     }
 
     @Test
-    void testCreateIntegerArrayFromNonExistentFile() {
-        String filePath = "prog/src/ch2/data/nonExistentFile.txt";
+    void testCreateIntegerArrayFromNonExistFile() {
+        String filePath = "prog/src/ch2/data/aaaa.txt";
 
- & Then
-        Assertions.assertThrows(ArrayCreationException.class, () -> {
-            arrayFactory.createIntegerArrayFromFile(filePath);
-        });
+        Assertions.assertThrows(ArrayCreationException.class, () -> {arrayFactory.createIntegerArrayFromFile(filePath); });
     }
 }

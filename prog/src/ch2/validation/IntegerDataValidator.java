@@ -33,11 +33,9 @@ public class IntegerDataValidator {
                 invalidTokens.add(token);
             }
         }
-        
+
         if (!invalidTokens.isEmpty()) {
-            throw new DataValidationException(
-                "Некорректные данные: " + String.join(", ", invalidTokens)
-            );
+            throw new DataValidationException("Некорректные данные");
         }
         
         if (result.isEmpty()) {

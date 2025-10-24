@@ -6,3 +6,4 @@ public class DataValidationException extends Exception {
         super(message);
     }
 }
+

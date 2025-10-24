@@ -5,3 +5,4 @@ public class FileReadException extends Exception {
         super(message);
     }
 }
+
