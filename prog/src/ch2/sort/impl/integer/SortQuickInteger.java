@@ -1,7 +1,7 @@
-package ch2.sorts.impl.integer;
+package ch2.sort.impl.integer;
 
 import ch1.array.ArrayInterface;
-import ch2.sorts.SortInterface;
+import ch2.sort.SortInterface;
 
 public class SortQuickInteger implements SortInterface<Integer> {
     @Override

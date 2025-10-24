@@ -1,6 +1,6 @@
 package test.ch2.validation;
 
-import ch2.exceptions.DataValidationException;
+import ch2.exception.DataValidationException;
 import ch2.validation.StringDataValidator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

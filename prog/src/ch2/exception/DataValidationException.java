@@ -1,4 +1,4 @@
-package ch2.exceptions;
+package ch2.exception;
 
 
 public class DataValidationException extends Exception {

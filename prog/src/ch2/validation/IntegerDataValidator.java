@@ -1,6 +1,6 @@
 package ch2.validation;
 
-import ch2.exceptions.DataValidationException;
+import ch2.exception.DataValidationException;
 
 import java.util.ArrayList;
 import java.util.List;

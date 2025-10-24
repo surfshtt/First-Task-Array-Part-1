@@ -1,7 +1,7 @@
-package ch2.sorts.impl.string;
+package ch2.sort.impl.string;
 
 import ch1.array.ArrayInterface;
-import ch2.sorts.SortInterface;
+import ch2.sort.SortInterface;
 
 import java.util.List;
 

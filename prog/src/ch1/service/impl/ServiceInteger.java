@@ -1,8 +1,8 @@
-package ch1.services.impl;
+package ch1.service.impl;
 
 import ch1.array.ArrayInterface;
-import ch1.services.ServiceInterface;
-import ch1.utils.ServiceValidator;
+import ch1.service.ServiceInterface;
+import ch1.util.ServiceValidator;
 
 import java.util.Collections;
 import java.util.List;

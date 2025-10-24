@@ -1,4 +1,4 @@
-package ch1.utils;
+package ch1.util;
 
 import ch1.array.ArrayInterface;
 import java.util.List;

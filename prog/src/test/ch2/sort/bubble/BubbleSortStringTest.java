@@ -1,8 +1,8 @@
-package test.ch2.sorts.bubble;
+package test.ch2.sort.bubble;
 
 import ch1.array.impl.ArrayStringEntity;
 import ch1.builder.impl.StringArrayBuilder;
-import ch2.sorts.impl.string.SortBubbleString;
+import ch2.sort.impl.string.SortBubbleString;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

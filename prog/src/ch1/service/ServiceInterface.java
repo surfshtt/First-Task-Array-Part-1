@@ -1,4 +1,4 @@
-package ch1.services;
+package ch1.service;
 
 import ch1.array.ArrayInterface;
 

@@ -1,4 +1,4 @@
-package ch2.sorts;
+package ch2.sort;
 
 import ch1.array.ArrayInterface;
 

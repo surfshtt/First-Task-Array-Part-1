@@ -2,7 +2,7 @@ package test.ch2.factory;
 
 import ch1.array.impl.ArrayIntegerEntity;
 import ch1.array.impl.ArrayStringEntity;
-import ch2.exceptions.ArrayCreationException;
+import ch2.exception.ArrayCreationException;
 import ch2.factory.ArrayFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

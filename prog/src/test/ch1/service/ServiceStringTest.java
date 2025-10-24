@@ -2,7 +2,7 @@ package test.ch1.service;
 
 import ch1.array.impl.ArrayStringEntity;
 import ch1.builder.impl.StringArrayBuilder;
-import ch1.services.impl.ServiceString;
+import ch1.service.impl.ServiceString;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
