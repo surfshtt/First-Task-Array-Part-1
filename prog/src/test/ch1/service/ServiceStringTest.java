@@ -1,12 +1,13 @@
 package test.ch1.service;
 
 import ch1.array.impl.ArrayStringEntity;
+import ch1.builder.impl.StringArrayBuilder;
 import ch1.services.impl.ServiceString;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class ServiceStringTest {
 
@@ -19,81 +20,64 @@ public class ServiceStringTest {
 
     @Test
     void testMethodFindMinWithStrings() {
-        //Given
-        ArrayStringEntity arrayEntity = new ArrayStringEntity(Arrays.asList("hello", "hi", "world", "a"));
+        ArrayStringEntity arrayEntity = StringArrayBuilder.create("hello", "world", "ye", "a").build();
         String expected = "a";
 
-        //When
         String actual = serviceString.findMin(arrayEntity);
 
-        //Then
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void testMethodFindMaxWithStrings() {
-        //Given
-        ArrayStringEntity arrayEntity = new ArrayStringEntity(Arrays.asList("hello", "hi", "world", "a"));
+        ArrayStringEntity arrayEntity = StringArrayBuilder.create("hello", "world", "ye", "a").build();
         String expected = "world";
 
-        //When
         String actual = serviceString.findMax(arrayEntity);
 
-        //Then
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void testMethodSumOfElements() {
-        //Given
-        ArrayStringEntity arrayEntity = new ArrayStringEntity(Arrays.asList("hello", "hi", "world"));
+        ArrayStringEntity arrayEntity = StringArrayBuilder.create("hello", "ye", "world").build();
         int expected = 13; // 5 + 2 + 5
 
-        //When
         int actual = serviceString.sumOfElements(arrayEntity);
 
-        //Then
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void testMethodAverageValue() {
-        //Given
-        ArrayStringEntity arrayEntity = new ArrayStringEntity(Arrays.asList("hello", "hi", "world"));
-        int expected = 4; // 13 / 3 = 4 (целочисленное деление)
+        ArrayStringEntity arrayEntity = StringArrayBuilder.create("hello", "aa", "world").build();
+        int expected = 4;
 
-        //When
         int actual = serviceString.averageValue(arrayEntity);
 
-        //Then
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void testMethodReplaceElements() {
-        //Given
-        ArrayStringEntity arrayEntity = new ArrayStringEntity(Arrays.asList("hello", "hi", "world"));
+        ArrayStringEntity arrayEntity = StringArrayBuilder.create("hello", "hi", "world").build();
         String expectedFirst = "world";
         String expectedSecond = "hello";
 
-        //When
         serviceString.replaceElements(arrayEntity, 0, 2);
 
-        //Then
         Assertions.assertEquals(expectedFirst, arrayEntity.getElements().get(0));
         Assertions.assertEquals(expectedSecond, arrayEntity.getElements().get(2));
     }
 
     @Test
     void testMethodReplaceElement() {
-        //Given
-        ArrayStringEntity arrayEntity = new ArrayStringEntity(Arrays.asList("hello", "hi", "world"));
+        ArrayStringEntity arrayEntity = StringArrayBuilder.create("hello", "hi", "world").build();
         String expected = "test";
 
-        //When
         serviceString.replaceElement(arrayEntity, 0, "test");
 
-        //Then
-        Assertions.assertEquals(expected, arrayEntity.getElements().get(0));
+        List<String> actual = arrayEntity.getElements();
+        Assertions.assertEquals(expected, actual.get(0));
     }
 }
