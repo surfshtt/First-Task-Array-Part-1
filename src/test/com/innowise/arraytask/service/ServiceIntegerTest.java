@@ -10,18 +10,23 @@ import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ServiceIntegerTest {
-    
+    private ArrayIntegerBuilder arrayIntegerBuilder;
+    private ArrayStringBuilder arrayStringBuilder;
+
     private ServiceInteger service;
     private ArrayIntegerEntity intArray;
     private ArrayStringEntity stringArray;
     
     @BeforeEach
     void setUp() {
+        arrayIntegerBuilder = new ArrayIntegerBuilder();
+        arrayStringBuilder = new ArrayStringBuilder();
+
         service = new ServiceInteger();
         int[] testIntArray = {5, -3, 8, -1, 12, 0, -7, 4};
         String[] testStringArray = {"apple", "banana", "cherry", "date", "elderberry"};
-        intArray = ArrayIntegerBuilder.create(testIntArray);
-        stringArray = ArrayStringBuilder.create(testStringArray);
+        intArray = arrayIntegerBuilder.create(testIntArray);
+        stringArray = arrayStringBuilder.create(testStringArray);
     }
     
     @Test
@@ -38,7 +43,7 @@ class ServiceIntegerTest {
     
     @Test
     void testFindMinValueWithEmptyArray() {
-        ArrayIntegerEntity emptyArray = ArrayIntegerBuilder.createEmpty(0);
+        ArrayIntegerEntity emptyArray = arrayIntegerBuilder.createEmpty(0);
         assertThrows(IllegalArgumentException.class, () -> {
             service.findMinValue(emptyArray);
         });
@@ -58,7 +63,7 @@ class ServiceIntegerTest {
     
     @Test
     void testFindMaxValueWithEmptyArray() {
-        ArrayIntegerEntity emptyArray = ArrayIntegerBuilder.createEmpty(0);
+        ArrayIntegerEntity emptyArray = arrayIntegerBuilder.createEmpty(0);
         assertThrows(IllegalArgumentException.class, () -> {
             service.findMaxValue(emptyArray);
         });
@@ -115,7 +120,7 @@ class ServiceIntegerTest {
     
     @Test
     void testCalculateSumWithEmptyArray() {
-        ArrayIntegerEntity emptyArray = ArrayIntegerBuilder.createEmpty(0);
+        ArrayIntegerEntity emptyArray = arrayIntegerBuilder.createEmpty(0);
         assertThrows(IllegalArgumentException.class, () -> {
             service.calculateSum(emptyArray);
         });
@@ -136,7 +141,7 @@ class ServiceIntegerTest {
     
     @Test
     void testCalculateAverageWithEmptyArray() {
-        ArrayIntegerEntity emptyArray = ArrayIntegerBuilder.createEmpty(0);
+        ArrayIntegerEntity emptyArray = arrayIntegerBuilder.createEmpty(0);
         assertThrows(IllegalArgumentException.class, () -> {
             service.calculateAverage(emptyArray);
         });
@@ -156,7 +161,7 @@ class ServiceIntegerTest {
     
     @Test
     void testCountPositiveElementsWithEmptyArray() {
-        ArrayIntegerEntity emptyArray = ArrayIntegerBuilder.createEmpty(0);
+        ArrayIntegerEntity emptyArray = arrayIntegerBuilder.createEmpty(0);
         assertThrows(IllegalArgumentException.class, () -> {
             service.countPositiveElements(emptyArray);
         });
@@ -176,7 +181,7 @@ class ServiceIntegerTest {
     
     @Test
     void testCountNegativeElementsWithEmptyArray() {
-        ArrayIntegerEntity emptyArray = ArrayIntegerBuilder.createEmpty(0);
+        ArrayIntegerEntity emptyArray = arrayIntegerBuilder.createEmpty(0);
         assertThrows(IllegalArgumentException.class, () -> {
             service.countNegativeElements(emptyArray);
         });

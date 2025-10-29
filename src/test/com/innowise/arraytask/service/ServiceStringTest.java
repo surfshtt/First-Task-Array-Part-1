@@ -10,18 +10,23 @@ import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ServiceStringTest {
-    
+    private ArrayIntegerBuilder arrayIntegerBuilder;
+    private ArrayStringBuilder arrayStringBuilder;
+
     private ServiceString service;
     private ArrayStringEntity stringArray;
     private ArrayIntegerEntity intArray;
     
     @BeforeEach
     void setUp() {
+        arrayIntegerBuilder = new ArrayIntegerBuilder();
+        arrayStringBuilder = new ArrayStringBuilder();
+
         service = new ServiceString();
         String[] testStringArray = {"apple", "banana", "cherry", "date", "elderberry"};
         int[] testIntArray = {5, -3, 8, -1, 12, 0, -7, 4};
-        stringArray = ArrayStringBuilder.create(testStringArray);
-        intArray = ArrayIntegerBuilder.create(testIntArray);
+        stringArray = arrayStringBuilder.create(testStringArray);
+        intArray = arrayIntegerBuilder.create(testIntArray);
     }
     
     @Test
@@ -38,7 +43,7 @@ class ServiceStringTest {
     
     @Test
     void testFindMinValueStringWithEmptyArray() {
-        ArrayStringEntity emptyArray = ArrayStringBuilder.createEmpty(0);
+        ArrayStringEntity emptyArray = arrayStringBuilder.createEmpty(0);
         assertThrows(IllegalArgumentException.class, () -> {
             service.findMinValue(emptyArray);
         });
@@ -58,7 +63,7 @@ class ServiceStringTest {
     
     @Test
     void testFindMaxValueStringWithEmptyArray() {
-        ArrayStringEntity emptyArray = ArrayStringBuilder.createEmpty(0);
+        ArrayStringEntity emptyArray = arrayStringBuilder.createEmpty(0);
         assertThrows(IllegalArgumentException.class, () -> {
             service.findMaxValue(emptyArray);
         });

@@ -15,7 +15,7 @@ public class IntegerDataParser {
     private static final Pattern DASH_PATTERN = Pattern.compile("\\s*-\\s*");
     
     public int[] parse(String line) throws DataValidationException {
-        if (line == null || line.trim().isEmpty()) {
+        if (line == null || line.isBlank()) {
             throw new DataValidationException("String cannot be null or empty");
         }
         

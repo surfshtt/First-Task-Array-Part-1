@@ -13,8 +13,8 @@ public class StringDataParser {
     private static final Pattern DASH_PATTERN = Pattern.compile("\\s*-\\s*");
     
     public String[] parse(String line) throws DataValidationException {
-        if (line == null || line.trim().isEmpty()) {
-            throw new DataValidationException("Строка не может быть пустой");
+        if (line == null || line.isBlank()) {
+            throw new DataValidationException("String cannot be null or blank");
         }
         
         List<String> tokens = parseTokens(line.trim());
@@ -31,12 +31,12 @@ public class StringDataParser {
         
         if (!invalidTokens.isEmpty()) {
             throw new DataValidationException(
-                "Некорректные данные: " + String.join(", ", invalidTokens)
+                "Incorrect data: " + String.join(", ", invalidTokens)
             );
         }
         
         if (result.isEmpty()) {
-            throw new DataValidationException("Не найдено ни одной корректной строки");
+            throw new DataValidationException("There arent any correct data");
         }
         
         return result.toArray(new String[result.size()]);
