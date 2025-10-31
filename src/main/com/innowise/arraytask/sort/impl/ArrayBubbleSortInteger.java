@@ -2,9 +2,13 @@ package main.com.innowise.arraytask.sort.impl;
 
 import main.com.innowise.arraytask.sort.ArraySort;
 
-public class BubbleArraySortInteger implements ArraySort<int[]> {
+public class ArrayBubbleSortInteger implements ArraySort<int[]> {
     @Override
     public void sort(int[] array){
+        if(array == null || array.length == 0) {
+            return;
+        }
+
         int n = array.length;
         boolean swapped;
 

@@ -42,4 +42,28 @@ public class ArrayIntegerEntity {
         sb.append("]");
         return sb.toString();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) {
+            return true;
+        }
+
+        if(obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        ArrayIntegerEntity that = (ArrayIntegerEntity) obj;
+        if(that.getLength() != array.length) {
+            return false;
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] != that.array[i]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
