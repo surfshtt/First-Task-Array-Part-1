@@ -18,17 +18,17 @@ public class FileDataReader {
             Path path = Paths.get(filePath);
             
             if (!Files.exists(path)) {
-                throw new FileReadException("Файл не найден: " + filePath);
+                throw new FileReadException("File not found: " + filePath);
             }
             
             if (!Files.isReadable(path)) {
-                throw new FileReadException("Файл недоступен для чтения: " + filePath);
+                throw new FileReadException("File is unreadable: " + filePath);
             }
 
             return Files.readAllLines(path);
             
         } catch (IOException e) {
-            throw new FileReadException("Ошибка при чтении файла: " + filePath);
+            throw new FileReadException("Error of reading a file: " + filePath);
         }
     }
 }

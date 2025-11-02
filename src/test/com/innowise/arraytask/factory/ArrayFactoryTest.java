@@ -20,7 +20,7 @@ public class ArrayFactoryTest {
 
     @Test
     void testCreateIntegerArrayFromFile() throws ArrayCreationException {
-        String filePath = "prog/src/ch2/main.com.innowise.arraytask.data/dataInteger.txt";
+        String filePath = "dataInteger.txt";
         int[] expected = {1, 2, 3, 4, 5};
 
         ArrayIntegerEntity actual = arrayFactory.createIntegerArrayFromFile(filePath);
@@ -30,7 +30,7 @@ public class ArrayFactoryTest {
 
     @Test
     void testCreateStringArrayFromFile() throws ArrayCreationException {
-        String filePath = "prog/src/ch2/main.com.innowise.arraytask.data/dataString.txt";
+        String filePath = "dataString.txt";
         String[] expected = {"hello", "hi", "hee", "erg", "rege", "dsf"};
 
         ArrayStringEntity actual = arrayFactory.createStringArrayFromFile(filePath);
@@ -40,7 +40,7 @@ public class ArrayFactoryTest {
 
     @Test
     void testCreateStringArrayFromFileWithDashes() throws ArrayCreationException {
-        String filePath = "prog/src/ch2/main.com.innowise.arraytask.data/dataString2.txt";
+        String filePath = "dataString2.txt";
         String[] expected = {"hello", "hi", "hee", "erg", "rege", "dsf"};
 
         ArrayStringEntity actual = arrayFactory.createStringArrayFromFile(filePath);
@@ -50,7 +50,7 @@ public class ArrayFactoryTest {
 
     @Test
     void testCreateIntegerArrayFromNonExistFile() {
-        String filePath = "prog/src/ch2/main.com.innowise.arraytask.data/aaaa.txt";
+        String filePath = "aaaa.txt";
 
         Assertions.assertThrows(ArrayCreationException.class, () -> {arrayFactory.createIntegerArrayFromFile(filePath); });
     }

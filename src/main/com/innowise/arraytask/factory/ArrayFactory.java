@@ -36,7 +36,7 @@ public class ArrayFactory {
             int[] integers = integerDataParser.parse(dataLines.getFirst());
             return arrayIntegerBuilder.create(integers);
         } catch (FileReadException | DataValidationException e) {
-            throw new ArrayCreationException("Ошибка чтения файла: " + filePath);
+            throw new ArrayCreationException("Error of reading a file: " + filePath);
         }
     }
 
@@ -47,9 +47,9 @@ public class ArrayFactory {
             return arrayStringBuilder.create(strings);
 
         } catch (FileReadException e) {
-            throw new ArrayCreationException("Ошибка чтения файла: " + filePath);
+            throw new ArrayCreationException("Error of reading a file: " + filePath);
         } catch (Exception e) {
-            throw new ArrayCreationException("Ошибка создания массива строк из файла: " + filePath);
+            throw new ArrayCreationException("Error of creating an array: " + filePath);
         }
     }
 }

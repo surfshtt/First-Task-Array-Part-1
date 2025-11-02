@@ -36,7 +36,7 @@ public class IntegerDataParser {
         }
 
         if (!invalidTokens.isEmpty()) {
-            throw new DataValidationException("Incorrect main.com.innowise.arraytask.data");
+            throw new DataValidationException("Empty tokens");
         }
         
         if (result.isEmpty()) {
