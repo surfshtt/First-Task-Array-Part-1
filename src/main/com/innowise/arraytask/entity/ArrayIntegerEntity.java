@@ -66,4 +66,13 @@ public class ArrayIntegerEntity {
 
         return true;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        for (int j : array) {
+            hash = 31 * hash + j;
+        }
+        return hash;
+    }
 }

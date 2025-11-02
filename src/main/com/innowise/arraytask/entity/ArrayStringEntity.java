@@ -1,5 +1,7 @@
 package main.com.innowise.arraytask.entity;
 
+import main.com.innowise.arraytask.builder.ArrayStringBuilder;
+
 public class ArrayStringEntity {
     private final String[] array;
     
@@ -41,5 +43,38 @@ public class ArrayStringEntity {
         }
         sb.append("]");
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) {
+            return true;
+        }
+
+        if(obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        ArrayStringEntity that = (ArrayStringEntity) obj;
+        if(that.getLength() != array.length) {
+            return false;
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] != that.array[i]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        for (String j : array) {
+            hash = 31 * hash + j.length();
+        }
+        return hash;
     }
 }

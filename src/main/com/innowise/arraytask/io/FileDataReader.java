@@ -18,7 +18,7 @@ public class FileDataReader {
             Path path = Paths.get(filePath);
             
             if (!Files.exists(path)) {
-                throw new FileReadException("File not found: " + filePath);
+                throw new FileReadException("File wasn't found: " + filePath);
             }
             
             if (!Files.isReadable(path)) {
