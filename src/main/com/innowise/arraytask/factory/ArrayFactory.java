@@ -8,7 +8,7 @@ import main.com.innowise.arraytask.builder.ArrayStringBuilder;
 import main.com.innowise.arraytask.exception.ArrayCreationException;
 import main.com.innowise.arraytask.exception.DataValidationException;
 import main.com.innowise.arraytask.exception.FileReadException;
-import main.com.innowise.arraytask.io.FileDataReader;
+import main.com.innowise.arraytask.io.impl.FileDataReaderImpl;
 import main.com.innowise.arraytask.parser.IntegerDataParser;
 import main.com.innowise.arraytask.parser.StringDataParser;
 
@@ -16,14 +16,14 @@ import java.util.List;
 
 public class ArrayFactory {
 
-    private final FileDataReader fileReader;
+    private final FileDataReaderImpl fileReader;
     private final IntegerDataParser integerDataParser;
     private final StringDataParser stringDataParser;
     private final ArrayIntegerBuilder arrayIntegerBuilder;
     private final ArrayStringBuilder arrayStringBuilder;
 
     public ArrayFactory() {
-        this.fileReader = new FileDataReader();
+        this.fileReader = new FileDataReaderImpl();
         integerDataParser = new IntegerDataParser();
         stringDataParser = new StringDataParser();
         arrayIntegerBuilder = new ArrayIntegerBuilder();
