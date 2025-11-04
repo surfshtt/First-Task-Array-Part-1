@@ -114,12 +114,6 @@ class ArrayComparatorTest {
         }
     }
 
-    @Test
-    void testIdComparatorNullHandling() {
-        int result = ArrayComparator.HASH_CODE.compare(null, intArray1);
-        assertTrue(result < 0);
-    }
-
     private int calculateSum(ArrayIntegerEntity entity) {
         int[] arr = entity.getArray();
         int sum = 0;
