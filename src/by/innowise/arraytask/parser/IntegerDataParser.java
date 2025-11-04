@@ -5,9 +5,11 @@ import by.innowise.arraytask.exception.DataValidationException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 public class IntegerDataParser {
+    private static final Logger logger = Logger.getLogger(IntegerDataParser.class.getName());
     
     private static final Pattern INTEGER_PATTERN = Pattern.compile("^-?\\d+$");
     private static final Pattern SPACE_PATTERN = Pattern.compile("\\s+");
@@ -15,6 +17,7 @@ public class IntegerDataParser {
     private static final Pattern DASH_PATTERN = Pattern.compile("\\s*-\\s*");
     
     public int[] parse(String line) throws DataValidationException {
+        logger.info("Parsing integer data from line");
         if (line == null || line.isBlank()) {
             throw new DataValidationException("String cannot be null or empty");
         }

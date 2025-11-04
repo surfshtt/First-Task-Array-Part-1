@@ -4,17 +4,22 @@ import by.innowise.arraytask.entity.ArrayIntegerEntity;
 import by.innowise.arraytask.entity.ArrayStringEntity;
 import by.innowise.arraytask.specification.ArraySpecification;
 
+import java.util.logging.Logger;
+
 public class IntervalSpecification implements ArraySpecification {
+    private static final Logger logger = Logger.getLogger(IntervalSpecification.class.getName());
     private final int minValue;
     private final int maxValue;
 
     public IntervalSpecification(int minValue, int maxValue) {
+        logger.fine("Creating IntervalSpecification with range [" + minValue + ", " + maxValue + "]");
         this.minValue = minValue;
         this.maxValue = maxValue;
     }
 
     @Override
     public boolean specify(Object array) {
+        logger.fine("Checking if array values are within interval");
         if (array instanceof ArrayIntegerEntity intEntity) {
             int[] arr = intEntity.getArray();
             for (int value : arr) {
@@ -27,3 +32,4 @@ public class IntervalSpecification implements ArraySpecification {
         return false;
     }
 }
+

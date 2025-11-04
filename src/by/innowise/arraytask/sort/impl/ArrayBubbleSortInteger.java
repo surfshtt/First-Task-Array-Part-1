@@ -2,9 +2,14 @@ package by.innowise.arraytask.sort.impl;
 
 import by.innowise.arraytask.sort.ArraySort;
 
+import java.util.logging.Logger;
+
 public class ArrayBubbleSortInteger implements ArraySort<int[]> {
+    private static final Logger logger = Logger.getLogger(ArrayBubbleSortInteger.class.getName());
+    
     @Override
     public void sort(int[] array){
+        logger.fine("Sorting integer array using bubble sort");
         if(array == null || array.length == 0) {
             return;
         }

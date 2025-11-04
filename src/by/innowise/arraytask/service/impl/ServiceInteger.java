@@ -4,10 +4,14 @@ import by.innowise.arraytask.entity.ArrayIntegerEntity;
 import by.innowise.arraytask.entity.ArrayStringEntity;
 import by.innowise.arraytask.service.ServiceInterface;
 
+import java.util.logging.Logger;
+
 public class ServiceInteger implements ServiceInterface {
+    private static final Logger logger = Logger.getLogger(ServiceInteger.class.getName());
     
     @Override
     public int findMinValue(ArrayIntegerEntity array) {
+        logger.fine("Finding minimum value in integer array");
         if (array == null || array.getLength() == 0) {
             throw new IllegalArgumentException("Array cannot be null or empty");
         }
@@ -26,6 +30,7 @@ public class ServiceInteger implements ServiceInterface {
     
     @Override
     public int findMaxValue(ArrayIntegerEntity array) {
+        logger.fine("Finding maximum value in integer array");
         if (array == null || array.getLength() == 0) {
             throw new IllegalArgumentException("Array cannot be null or empty");
         }
@@ -44,6 +49,7 @@ public class ServiceInteger implements ServiceInterface {
     
     @Override
     public String findMinValue(ArrayStringEntity array) {
+        logger.fine("Finding minimum value in string array");
         if (array == null || array.getLength() == 0) {
             throw new IllegalArgumentException("Array cannot be null or empty");
         }
@@ -62,6 +68,7 @@ public class ServiceInteger implements ServiceInterface {
     
     @Override
     public String findMaxValue(ArrayStringEntity array) {
+        logger.fine("Finding maximum value in string array");
         if (array == null || array.getLength() == 0) {
             throw new IllegalArgumentException("Array cannot be null or empty");
         }
@@ -80,6 +87,7 @@ public class ServiceInteger implements ServiceInterface {
     
     @Override
     public ArrayIntegerEntity replaceElements(ArrayIntegerEntity array, int oldValue, int newValue) {
+        logger.fine("Replacing elements in integer array");
         if (array == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -100,6 +108,7 @@ public class ServiceInteger implements ServiceInterface {
     
     @Override
     public ArrayStringEntity replaceElements(ArrayStringEntity array, String oldValue, String newValue) {
+        logger.fine("Replacing elements in string array");
         if (array == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -120,6 +129,7 @@ public class ServiceInteger implements ServiceInterface {
     
     @Override
     public double calculateAverage(ArrayIntegerEntity array) {
+        logger.fine("Calculating average of integer array");
         if (array == null || array.getLength() == 0) {
             throw new IllegalArgumentException("Array cannot be null or empty");
         }
@@ -132,6 +142,7 @@ public class ServiceInteger implements ServiceInterface {
     
     @Override
     public int calculateSum(ArrayIntegerEntity array) {
+        logger.fine("Calculating sum of integer array");
         if (array == null || array.getLength() == 0) {
             throw new IllegalArgumentException("Array cannot be null or empty");
         }
@@ -148,6 +159,7 @@ public class ServiceInteger implements ServiceInterface {
     
     @Override
     public int countPositiveElements(ArrayIntegerEntity array) {
+        logger.fine("Counting positive elements in integer array");
         if (array == null || array.getLength() == 0) {
             throw new IllegalArgumentException("Array cannot be null or empty");
         }
@@ -166,6 +178,7 @@ public class ServiceInteger implements ServiceInterface {
     
     @Override
     public int countNegativeElements(ArrayIntegerEntity array) {
+        logger.fine("Counting negative elements in integer array");
         if (array == null || array.getLength() == 0) {
             throw new IllegalArgumentException("Array cannot be null or empty");
         }

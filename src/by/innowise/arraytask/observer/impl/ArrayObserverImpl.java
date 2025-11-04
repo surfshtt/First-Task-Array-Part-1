@@ -7,17 +7,22 @@ import by.innowise.arraytask.service.ServiceInterface;
 import by.innowise.arraytask.service.impl.ServiceInteger;
 import by.innowise.arraytask.warehouse.ArrayWarehouse;
 
+import java.util.logging.Logger;
+
 public class ArrayObserverImpl implements ArrayObserver {
+    private static final Logger logger = Logger.getLogger(ArrayObserverImpl.class.getName());
     private final ArrayWarehouse warehouse;
     private final ServiceInterface service;
 
     public ArrayObserverImpl() {
+        logger.info("Initializing ArrayObserverImpl");
         this.warehouse = ArrayWarehouse.getInstance();
         this.service = new ServiceInteger();
     }
 
     @Override
     public void handleEvent(Object array) {
+        logger.fine("Handling array event");
         if (array == null) {
             return;
         }
@@ -27,6 +32,7 @@ public class ArrayObserverImpl implements ArrayObserver {
     }
 
     private ArrayParameters calculateParameters(Object array) {
+        logger.fine("Calculating array parameters");
         if (array instanceof ArrayIntegerEntity intEntity) {
             int minValue = service.findMinValue(intEntity);
             int maxValue = service.findMaxValue(intEntity);

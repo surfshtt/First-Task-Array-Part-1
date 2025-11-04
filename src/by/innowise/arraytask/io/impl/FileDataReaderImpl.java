@@ -10,12 +10,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-
+import java.util.logging.Logger;
 
 public class FileDataReaderImpl implements FileDataReader {
+    private static final Logger logger = Logger.getLogger(FileDataReaderImpl.class.getName());
 
     @Override
     public List<String> readAllLines(String filePath) throws FileReadException {
+        logger.info("Reading all lines from file: " + filePath);
         try {
             Path path = Paths.get(filePath);
             

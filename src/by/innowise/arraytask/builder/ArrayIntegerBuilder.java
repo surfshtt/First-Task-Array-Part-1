@@ -2,8 +2,13 @@ package by.innowise.arraytask.builder;
 
 import by.innowise.arraytask.entity.ArrayIntegerEntity;
 
+import java.util.logging.Logger;
+
 public class ArrayIntegerBuilder {
+    private static final Logger logger = Logger.getLogger(ArrayIntegerBuilder.class.getName());
+    
     public ArrayIntegerEntity create(int[] array) {
+        logger.info("Creating ArrayIntegerEntity from array");
         if (array == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -11,6 +16,7 @@ public class ArrayIntegerBuilder {
     }
 
     public ArrayIntegerEntity createEmpty(int size) {
+        logger.fine("Creating empty ArrayIntegerEntity with size: " + size);
         if (size < 0) {
             throw new IllegalArgumentException("Size cannot be negative");
         }

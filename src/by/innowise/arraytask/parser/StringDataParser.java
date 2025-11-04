@@ -4,15 +4,18 @@ import by.innowise.arraytask.exception.DataValidationException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 public class StringDataParser {
+    private static final Logger logger = Logger.getLogger(StringDataParser.class.getName());
     
     private static final Pattern SPACE_PATTERN = Pattern.compile("\\s+");
     private static final Pattern COMMA_PATTERN = Pattern.compile(",\\s*");
     private static final Pattern DASH_PATTERN = Pattern.compile("\\s*-\\s*");
     
     public String[] parse(String line) throws DataValidationException {
+        logger.info("Parsing string data from line");
         if (line == null || line.isBlank()) {
             throw new DataValidationException("String cannot be null or blank");
         }

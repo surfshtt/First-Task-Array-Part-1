@@ -13,6 +13,7 @@ import by.innowise.arraytask.parser.IntegerDataParser;
 import by.innowise.arraytask.parser.StringDataParser;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 public class ArrayFactory {
 
@@ -22,7 +23,10 @@ public class ArrayFactory {
     private final ArrayIntegerBuilder arrayIntegerBuilder;
     private final ArrayStringBuilder arrayStringBuilder;
 
+    private static final Logger logger = Logger.getLogger(ArrayFactory.class.getName());
+
     public ArrayFactory() {
+        logger.info("Initializing ArrayFactory");
         this.fileReader = new FileDataReaderImpl();
         integerDataParser = new IntegerDataParser();
         stringDataParser = new StringDataParser();
@@ -31,6 +35,7 @@ public class ArrayFactory {
     }
 
     public ArrayIntegerEntity createIntegerArrayFromFile(String filePath) throws ArrayCreationException {
+        logger.info("Creating integer array from file: " + filePath);
         try {
             List<String> dataLines = fileReader.readAllLines(filePath);
             int[] integers = integerDataParser.parse(dataLines.getFirst());
@@ -41,6 +46,7 @@ public class ArrayFactory {
     }
 
     public ArrayStringEntity createStringArrayFromFile(String filePath) throws ArrayCreationException {
+        logger.info("Creating string array from file: " + filePath);
         try {
             List<String> dataLines = fileReader.readAllLines(filePath);
             String[] strings = stringDataParser.parse(dataLines.getFirst());

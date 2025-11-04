@@ -5,3 +5,4 @@ public interface ArrayObservable {
     void detach(ArrayObserver observer);
     void notifyObservers();
 }
+

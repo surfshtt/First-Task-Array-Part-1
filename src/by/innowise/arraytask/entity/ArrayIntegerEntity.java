@@ -1,21 +1,28 @@
 package by.innowise.arraytask.entity;
 
+import java.util.logging.Logger;
+
 public class ArrayIntegerEntity {
+    private static final Logger logger = Logger.getLogger(ArrayIntegerEntity.class.getName());
     private final int[] array;
 
     public ArrayIntegerEntity(int[] array) {
+        logger.info("Creating ArrayIntegerEntity");
         this.array = array.clone();
     }
     
     public int[] getArray() {
+        logger.fine("Getting array copy");
         return array.clone();
     }
     
     public int getLength() {
+        logger.fine("Getting array length");
         return array.length;
     }
     
     public int getElement(int index) {
+        logger.fine("Getting element at index: " + index);
         if (index < 0 || index >= array.length) {
             throw new IndexOutOfBoundsException("Index: " + index);
         }
@@ -23,6 +30,7 @@ public class ArrayIntegerEntity {
     }
     
     public void setElement(int index, int value) {
+        logger.fine("Setting element at index: " + index);
         if (index < 0 || index >= array.length) {
             throw new IndexOutOfBoundsException("Index: " + index);
         }
